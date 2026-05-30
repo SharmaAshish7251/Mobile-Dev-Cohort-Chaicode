@@ -1,5 +1,6 @@
 import { ScrollView, StyleSheet } from "react-native";
-import Assignment from "./assignments/Assignment";
+import SignInAssignment from "./assignments/SignInAssignment";
+import SignUpAssignment from "./assignments/SignUpAssignment";
 
 const HomeScreen = () => {
   return (
@@ -9,7 +10,8 @@ const HomeScreen = () => {
       }}
     >
       {/* <BasicComponents /> */}
-      <Assignment />
+      {/* <SignInAssignment /> */}
+      <SignUpAssignment />
     </ScrollView>
   );
 };

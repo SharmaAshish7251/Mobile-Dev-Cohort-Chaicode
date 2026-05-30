@@ -7,6 +7,7 @@ const Colors = {
   placeholder: "#999",
   white: "#FFFFFF",
   error: "#F44336",
+  errorlight: "#FEE5E6",
 };
 
 export default Colors;

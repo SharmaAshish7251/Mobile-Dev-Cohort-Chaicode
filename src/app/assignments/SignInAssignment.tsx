@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import Colors from "../Colors";
 
-const Assignment = () => {
+const SignInAssignment = () => {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPass, setIsFocusedPass] = useState(false);
   const [isFocusedButton, setisFocusedButton] = useState(false);
@@ -363,6 +363,6 @@ const Assignment = () => {
   );
 };
 
-export default Assignment;
+export default SignInAssignment;
 
 const styles = StyleSheet.create({});
