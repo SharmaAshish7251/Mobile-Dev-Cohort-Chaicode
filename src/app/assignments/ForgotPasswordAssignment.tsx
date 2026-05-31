@@ -4,7 +4,6 @@ import {
   useFonts,
 } from "@expo-google-fonts/nunito";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
 import {
   Image,
   KeyboardAvoidingView,
@@ -12,17 +11,11 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from "react-native";
 import Colors from "../Colors";
 
 const SignUpAssignment = () => {
-  const [isFocusedEmail, setIsFocusedEmail] = useState(false);
-  const [isFocusedPass, setIsFocusedPass] = useState(false);
-  const [isFocusedPassConfirm, setIsFocusedPassConfirm] = useState(false);
-  const [isFocusedButton, setisFocusedButton] = useState(false);
-
   const [fontsLoaded] = useFonts({
     Nunito_500Medium,
     Nunito_700Bold,
@@ -66,7 +59,7 @@ const SignUpAssignment = () => {
           />
         </View>
 
-        {/* Label Signin */}
+        {/* Label Forgot Password */}
         <View
           style={{
             flex: 1,
@@ -84,7 +77,7 @@ const SignUpAssignment = () => {
               fontFamily: "Nunito_700Bold",
             }}
           >
-            Sign Up for Free
+            Forgot Password
           </Text>
           <Text
             style={{
@@ -94,7 +87,7 @@ const SignUpAssignment = () => {
               fontFamily: "Nunito_500Medium",
             }}
           >
-            Sign up in 1 minute for free!
+            Select with methods you'd like to reset.
           </Text>
         </View>
 
@@ -103,200 +96,175 @@ const SignUpAssignment = () => {
           style={{
             marginTop: 18,
             width: "100%",
+            flex: 1,
+            padding: 12,
+            flexDirection: "row",
+            backgroundColor: Colors.white,
+            borderRadius: 21,
+            elevation: 2,
           }}
         >
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: Colors.text,
-            }}
-          >
-            Email Address
-          </Text>
+          {/* Left */}
           <View
             style={{
               flex: 1,
               flexDirection: "row",
               alignContent: "center",
               alignItems: "center",
-              borderColor: isFocusedEmail ? Colors.primary : "grey",
-              borderWidth: isFocusedEmail ? 2 : 1,
-              borderRadius: 12,
-              paddingLeft: 9,
-              paddingTop: 6,
-              paddingBottom: 6,
-              backgroundColor: Colors.white,
+              backgroundColor: "#EBEBEB",
+              width: 80,
+              height: 65,
+              borderRadius: 21,
+              marginRight: 12,
+              justifyContent: "center",
             }}
           >
-            <Ionicons
-              name="mail"
-              size={20}
-              color={isFocusedEmail ? Colors.primary : Colors.text}
-            />
-            <TextInput
-              onFocus={() => setIsFocusedEmail(!isFocusedEmail)}
-              onBlur={() => setIsFocusedEmail(!isFocusedEmail)}
-              style={{
-                fontSize: 15,
-                marginLeft: 3,
-              }}
-              placeholder="Enter your email address"
-            />
+            <Ionicons name="mail" size={32} color="grey" />
           </View>
-        </View>
 
-        {/* Password */}
-        <View
-          style={{
-            marginTop: 18,
-            width: "100%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: Colors.text,
-            }}
-          >
-            Password
-          </Text>
+          {/* Right */}
+
           <View
             style={{
-              flex: 1,
-              flexDirection: "row",
-              alignContent: "center",
-              alignItems: "center",
-              borderColor: isFocusedPass ? Colors.error : Colors.error,
-              borderWidth: isFocusedPass ? 2 : 2,
-              backgroundColor: Colors.white,
-              borderRadius: 12,
-              paddingLeft: 9,
-              overflow: "hidden",
               marginTop: 3,
-              paddingTop: 6,
-              paddingBottom: 6,
-              width: "100%",
             }}
           >
-            <FontAwesome name="lock" size={20} color="black" />
-            <TextInput
-              secureTextEntry={!isFocusedPass}
-              defaultValue="*****************"
-              onFocus={() => setIsFocusedPass(true)}
-              onBlur={() => setIsFocusedPass(false)}
-              placeholder="Enter your Password"
+            <Text
               style={{
-                flex: 1,
-                fontSize: 15,
-
-                marginLeft: 3,
+                fontSize: 21,
+                fontWeight: 900,
+                color: Colors.text,
               }}
-            />
-            <Pressable
-              onPress={() => setIsFocusedPass(!isFocusedPass)}
-              style={{ paddingRight: 9 }}
             >
-              <FontAwesome
-                name={isFocusedPass ? "eye" : "eye-slash"}
-                size={20}
-                color="black"
-              />
-            </Pressable>
-          </View>
-        </View>
-
-        {/* Password  Confirmation*/}
-        <View
-          style={{
-            marginTop: 18,
-            width: "100%",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: Colors.text,
-            }}
-          >
-            Password Confirmation
-          </Text>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              alignContent: "center",
-              alignItems: "center",
-              borderColor: isFocusedPassConfirm ? Colors.primary : "grey",
-              borderWidth: isFocusedPassConfirm ? 2 : 1,
-              backgroundColor: Colors.white,
-              borderRadius: 12,
-              paddingLeft: 9,
-              overflow: "hidden",
-              marginTop: 3,
-              paddingTop: 6,
-              paddingBottom: 6,
-              width: "100%",
-            }}
-          >
-            <FontAwesome name="lock" size={20} color="black" />
-            <TextInput
-              defaultValue="*****************"
-              secureTextEntry={!isFocusedPassConfirm}
-              onFocus={() => setIsFocusedPass(true)}
-              onBlur={() => setIsFocusedPass(false)}
-              placeholder="Enter your Password"
-              style={{
-                flex: 1,
-                fontSize: 15,
-
-                marginLeft: 3,
-              }}
-            />
-            <Pressable
-              onPress={() => setIsFocusedPass(!isFocusedPassConfirm)}
-              style={{ paddingRight: 9 }}
-            >
-              <FontAwesome
-                name={isFocusedPass ? "eye" : "eye-slash"}
-                size={20}
-                color="black"
-              />
-            </Pressable>
-          </View>
-
-          {/* Error Field*/}
-
-          <View
-            style={{
-              backgroundColor: Colors.errorlight,
-              flex: 1,
-              flexDirection: "row",
-              padding: 12,
-              borderRadius: 12,
-              borderColor: isFocusedPass ? Colors.error : Colors.error,
-              borderWidth: isFocusedPass ? 2 : 2,
-              marginTop: 10,
-            }}
-          >
-            <FontAwesome
-              style={{
-                color: Colors.error,
-              }}
-              size={20}
-              name="exclamation"
-            />
+              Email Adress
+            </Text>
             <Text
               style={{
                 fontSize: 15,
                 fontWeight: 600,
                 color: Colors.text,
-                marginLeft: 12,
               }}
             >
-              ERROR : Password do not match!
+              Send via email adress securely.
+            </Text>
+          </View>
+        </View>
+
+        {/* 2FA  */}
+        <View
+          style={{
+            marginTop: 18,
+            width: "100%",
+            flex: 1,
+            padding: 12,
+            flexDirection: "row",
+            backgroundColor: Colors.white,
+            borderRadius: 21,
+            elevation: 2,
+          }}
+        >
+          {/* Left */}
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              alignContent: "center",
+              alignItems: "center",
+              backgroundColor: Colors.greenlight,
+              width: 40,
+              height: 65,
+              marginRight: 38,
+              borderRadius: 21,
+              
+              justifyContent: "center",
+            }}
+          >
+            <Ionicons name="clipboard" size={32} color={Colors.primary} />
+          </View>
+
+          {/* Right */}
+
+          <View
+            style={{
+              marginTop: 3,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 21,
+                fontWeight: 900,
+                color: Colors.text,
+              }}
+            >
+              2FA Authentication
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: 600,
+                color: Colors.text,
+              }}
+            >
+              Send via 2FA securely.
+            </Text>
+          </View>
+        </View>
+
+        {/* Google Authenticator  */}
+        <View
+          style={{
+            marginTop: 18,
+            width: "100%",
+            flex: 1,
+            padding: 12,
+            flexDirection: "row",
+            backgroundColor: Colors.white,
+            borderRadius: 21,
+            elevation: 2,
+          }}
+        >
+          {/* Left */}
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              alignContent: "center",
+              alignItems: "center",
+              backgroundColor: "#EBEBEB",
+              width: 80,
+              height: 65,
+              borderRadius: 21,
+              marginRight: 12,
+              justifyContent: "center",
+            }}
+          >
+            <FontAwesome name="lock" size={32} color="grey" />
+          </View>
+
+          {/* Right */}
+
+          <View
+            style={{
+              marginTop: 3,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 21,
+                fontWeight: 900,
+                color: Colors.text,
+              }}
+            >
+              Google Authenticator
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: 600,
+                color: Colors.text,
+              }}
+            >
+              Send via Google Authenticator securely.
             </Text>
           </View>
         </View>
@@ -313,12 +281,11 @@ const SignUpAssignment = () => {
             alignItems: "center",
             width: "100%",
             marginTop: 21,
-            backgroundColor: isFocusedButton ? Colors.primary : Colors.primary,
-            borderColor: isFocusedButton ? Colors.primary : Colors.primary,
+            backgroundColor: Colors.primary,
             borderRadius: 12,
           }}
           onPress={() => {
-            setisFocusedButton(!isFocusedButton);
+            alert("Email send successfully");
           }}
         >
           <Text
@@ -328,7 +295,7 @@ const SignUpAssignment = () => {
               fontSize: 18,
             }}
           >
-            Sign In
+            Reset Password
           </Text>
           <FontAwesome
             style={{
@@ -342,35 +309,6 @@ const SignUpAssignment = () => {
             name="arrow-right"
           />
         </Pressable>
-
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginTop: 21,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: Colors.text,
-            }}
-          >
-            Already have an account?
-          </Text>
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: Colors.primary,
-              marginLeft: 3,
-              textDecorationLine: "underline",
-            }}
-          >
-            Sign Up.
-          </Text>
-        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );
